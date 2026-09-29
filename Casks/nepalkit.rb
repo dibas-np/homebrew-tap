@@ -1,8 +1,8 @@
 cask "nepalkit" do
-  version "1.2"
-  sha256 "9c8a96ef33b3aca4978e30e244121fa15db16f41a19fd936b0aabde542123c4c"
+  version "1.3.0"
+  sha256 "8041120c43695fc481a73cf3f7f32836ce51a193d7e12cfda3aa7afcea5abcc3"
 
-  url "https://github.com/dibas-np/NepalKit/releases/download/#{version}/NepalKit.dmg"
+  url "https://github.com/dibas-np/NepalKit/releases/download/v#{version}/NepalKit.dmg"
   name "NepalKit"
   desc "Bikram Sambat date and Nepal Time in the menu bar"
   homepage "https://github.com/dibas-np/NepalKit"
