@@ -29,6 +29,12 @@ To remove it, including the login item and all settings:
 brew uninstall --zap nepalkit
 ```
 
+macOS protects the contents of `~/Library/Containers` from any terminal without
+Full Disk Access, so the zap step may report that two container directories
+could not be trashed. That is the OS refusing, not Homebrew failing: the same
+happens for any sandboxed app. Run the uninstall from a terminal with Full Disk
+Access to remove them, or delete them from Finder.
+
 ## About the version in this cask
 
 The version tracks the GitHub release tag, and the cask is updated by hand after

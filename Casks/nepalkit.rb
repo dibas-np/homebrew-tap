@@ -17,9 +17,23 @@ cask "nepalkit" do
 
   app "NepalKit.app"
 
-  # The app is sandboxed, so its defaults and caches live inside the container
-  # rather than in ~/Library/Preferences. The container is the whole footprint:
-  # `SMAppService.mainApp` registers the login item through the system, which
-  # this directory owns, so removing it also drops the login item.
-  zap trash: "~/Library/Containers/com.dibas.NepalKit.NepalKit"
+  # `brew generate-zap` reports these two and nothing else. The app is sandboxed,
+  # so its preferences and caches live inside the container rather than in
+  # ~/Library/Preferences; the sibling directory is the group's container, which
+  # is where a group-scoped default would land. `SMAppService.mainApp` registers
+  # the login item through the system, which the app container owns, so removing
+  # it drops the login item too.
+  #
+  # Diagnostic reports and test-harness preferences are deliberately absent: the
+  # reports are crash logs macOS and the user may want to keep, and the
+  # preferences belong to the checkout rather than to the installed app.
+  #
+  # macOS denies a terminal access to `~/Library/Containers/*/Data` without Full
+  # Disk Access, so `uninstall --zap` can report that these could not be trashed.
+  # That is the OS refusing, not this stanza failing; it happens for any
+  # sandboxed app.
+  zap trash: [
+    "~/Library/Application Scripts/com.dibas.NepalKit*",
+    "~/Library/Containers/com.dibas.NepalKit*",
+  ]
 end
