@@ -1,6 +1,6 @@
 cask "nepalkit" do
-  version "1.8.0"
-  sha256 "2b9b8f1695a1c3598e7c6cbb18a528e7b9acaf74c4acf4d64f535faea529c88c"
+  version "1.8.1"
+  sha256 "cd2d03eb00c66e4986e56ee0c2bbde568f380cab65bed2cbc0d1663fae65546a"
 
   url "https://github.com/dibas-np/NepalKit/releases/download/v#{version}/NepalKit.dmg"
   name "NepalKit"
